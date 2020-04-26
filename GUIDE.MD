@@ -50,11 +50,11 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 #### DATABASE QUERY (MySQL)
     CREATE DATABASE COMMITS_AMS;
     USE COMMITS_AMS;
-    CREATE TABLE user(
+    CREATE TABLE _user(
        id varchar(11) primary key not null,
        username varchar(25) unique not null,
        password varchar(50) not null,
-       role enum('SuperAdmin', 'Org', 'ReadOnly')    
+       _role enum('SuperAdmin', 'Org', 'ReadOnly') DEFAULT ('Org')    
     );
     CREATE TABLE organization (
        id int primary key auto_increment,
@@ -130,9 +130,9 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 - / 
    - GET  -> Get all user
    - POST -> Create new user
-   - PATCH -> Update user
 - /:id
    - GET -> Get user by id
+   - PATCH -> Update user
    - DELETE -> Delete a user
 - /exist
    - POST -> Check if account exist
