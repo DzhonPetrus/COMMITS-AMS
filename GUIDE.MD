@@ -129,12 +129,11 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 #### User [ /api/user ] 
 - / 
    - GET  -> Get all user
+   - POST -> Create new user
+   - PATCH -> Update user
 - /:id
    - GET -> Get user by id
-   - PATCH -> Update user
    - DELETE -> Delete a user
-- /register
-   - POST -> Create new user
 - /exist
    - POST -> Check if account exist
 
