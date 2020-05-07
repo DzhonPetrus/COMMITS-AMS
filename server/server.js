@@ -8,7 +8,7 @@ const apiCourse = require('./routes/courseController');
 const apiStudent = require('./routes/studentController');
 
 const apiEvent = require('./routes/eventController');
-const apiAttendance = require('./routes/studentController');
+const apiAttendance = require('./routes/attendanceController');
 
 const app = express();
 

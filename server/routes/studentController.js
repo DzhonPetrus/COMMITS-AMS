@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
   }
 });
 
-router.post('/', async(req,res) => {
+router.post('/timeIn', async(req,res) => {
   try{
     let newStudent = req.body;
     newStudent.id = global.generateID();
@@ -36,7 +36,7 @@ router.get('/:studentNo', async(req,res) => {
   }
 });
 
-router.patch('/:id', async(req,res) => {
+router.patch('/timeOut/:id', async(req,res) => {
   try{
     let updatedStudent = req.body;
     updatedStudent.id = req.params.id;

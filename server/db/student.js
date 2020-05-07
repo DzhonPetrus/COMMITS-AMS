@@ -14,7 +14,7 @@ studentDB.all = () => {
 
 studentDB.findByStudentNo = (studentNo) => {
   return new Promise((resolve, reject) => {
-    pool.query(`SELECT * FROM student WHERE studentNo = ?`, id, (err, results) => {
+    pool.query(`SELECT * FROM student WHERE studentNo = ?`, studentNo, (err, results) => {
       if(err)
         return reject(err);
       return resolve(results);
@@ -36,7 +36,7 @@ studentDB.create = (student) => {
 studentDB.update = (student) => {
   let {id, firstName, middleName, lastName, courseCode, section, schoolYear} = student;
   return new Promise((resolve, reject) => {
-    pool.query(`UPDATE student SET firstName, middleName, lastName, courseCode, section, schoolYear WHERE id=?`, [firstName, middleName, lastName, courseCode, section, schoolYear, id], (err, results) => {
+    pool.query(`UPDATE student SET firstName=?, middleName=?, lastName=?, courseCode=?, section=?, schoolYear=? WHERE id=?`, [firstName, middleName, lastName, courseCode, section, schoolYear, id], (err, results) => {
       if(err)
         return reject(err);
       return resolve(results);

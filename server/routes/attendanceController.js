@@ -1,5 +1,6 @@
 const express = require('express');
 const attendance = require('../db/attendance');
+const student = require('../db/student');
 
 const router = express.Router();
 
@@ -14,9 +15,14 @@ router.get('/', async(req, res) => {
   }
 });
 
-router.post('/', async(req,res) => {
+router.post('/timeIn', async(req,res) => {
   try{
     let newAttendance = req.body;
+
+    let exist = await student.findByStudentNo(newAttendance.studentNo);
+    if(exist.length == 0)
+       res.status(400).send({msg:`Student with studentNo does not exist.`});
+
     newAttendance.id = global.generateID();
     let results = await attendance.timeIn(newAttendance);
     res.status(201).send({msg:`Time in success!`, results, newAttendance});
@@ -36,7 +42,7 @@ router.get('/:id', async(req,res) => {
   }
 });
 
-router.patch('/:id', async(req,res) => {
+router.patch('/timeOut/:id', async(req,res) => {
   try{
     let updatedAttendance = req.body;
     updatedAttendance.id = req.params.id;

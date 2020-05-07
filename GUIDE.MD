@@ -174,9 +174,11 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 #### ATTENDANCE [ /api/attendance ]
 - /
    - GET -> Get all Attendance
+- /timeIn
    - POST -> Create new attendance
 - /:id
    - PATCH - Update attendance
+- /timeOut/:id
    - DELETE - Delete attendance
 
 ### FLOW
