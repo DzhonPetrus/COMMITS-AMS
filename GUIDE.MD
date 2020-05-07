@@ -86,12 +86,13 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
        description tinytext,
        _date DATE
     );
+
     CREATE TABLE attendance(
        id varchar (11) primary key,
        eventId varchar(11) not null,
        studentNo varchar (20) not null,
        timeIn TIME DEFAULT CURRENT_TIME(),
-       timeOut TIME ON UPDATE CURRENT_TIME(),
+       timeOut TIME DEFAULT NULL,
        FOREIGN KEY (eventId) REFERENCES event(id),
        FOREIGN KEY (studentNo) REFERENCES student(studentNo)
     );

@@ -5,8 +5,10 @@ const apiUser = require('./routes/userController');
 
 const apiOrg = require('./routes/orgController');
 const apiCourse = require('./routes/courseController');
+const apiStudent = require('./routes/studentController');
 
 const apiEvent = require('./routes/eventController');
+const apiAttendance = require('./routes/studentController');
 
 const app = express();
 
@@ -18,8 +20,10 @@ app.use('/api/user', apiUser);
 
 app.use('/api/org', apiOrg);
 app.use('/api/course', apiCourse);
+app.use('/api/student', apiStudent);
 
 app.use('/api/event', apiEvent);
+app.use('/api/attendance', apiAttendance);
 
 let port = process.env.PORT || 3000;
 
