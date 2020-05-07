@@ -54,7 +54,7 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
        id varchar(11) primary key not null,
        username varchar(25) unique not null,
        password varchar(50) not null,
-       _role enum('SuperAdmin', 'Org', 'ReadOnly') DEFAULT ('Org')    
+       _role enum('SuperAdmin', 'Org', 'ReadOnly') DEFAULT ('Org')
     );
     CREATE TABLE organization (
        id int primary key auto_increment,
@@ -99,35 +99,34 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
     INSERT INTO user(username, password, role) VALUES('ADMIN', 'ADMIN', 0);
 
 
+
     INSERT INTO organization(orgCode, title) VALUES ('COMMITS','COMMONWEALTH INFORMATION TECHNOLOGY SOCIETY');
-    INSERT INTO course(courseCode, title) VALUES ('BSIT','Bachelor of Science in Information Technology', 'COMMITS');
+    INSERT INTO course(courseCode, title, orgCode) VALUES ('BSIT','Bachelor of Science in Information Technology', 'COMMITS');
 
 
     INSERT INTO organization(orgCode, title) VALUES ('CHRS','COMMUNITY OF HUMAN RESOURCE STUDENTS');
-    INSERT INTO course(courseCode, title) VALUES ('BSBA-HRM','Bachelor of Science in Business Administration major in Human Resource Development', 'CHRS');
+    INSERT INTO course(courseCode, title, orgCode) VALUES ('BSBA-HRM','Bachelor of Science in Business Administration major in Human Resource Development', 'CHRS');
 
 
     INSERT INTO organization(orgCode, title) VALUES ('JMS','JUNIOR MARKETING SOCIETY');
-    INSERT INTO course(courseCode, title) VALUES ('BSBA-MM','Bachelor of Science in Business Administration major in Marketing Management', 'JMS');
+    INSERT INTO course(courseCode, title, orgCode) VALUES ('BSBA-MM','Bachelor of Science in Business Administration major in Marketing Management', 'JMS');
 
 
     INSERT INTO organization(orgCode, title) VALUES ('DOMT','DISTINGUISHED ORGANIZATION OF MANAGEMENT TECHNOLOGY');
-    INSERT INTO course(courseCode,title) VALUES ('DOMT', 'Diploma in Office Management Technology');
+    INSERT INTO course(courseCode,title, orgCode) VALUES ('DOMT', 'Diploma in Office Management Technology', 'DOMT');
 
     INSERT INTO organization(orgCode, title) VALUES ('FBTO','FUTURE BUSINESS TEACHERS ORGANIZATION');
-    INSERT INTO course(courseCode, title) VALUES ('BBTE','Bachelor of Business Teacher Education', 'FBTO');
+    INSERT INTO course(courseCode, title, orgCode) VALUES ('BBTE','Bachelor of Business Teacher Education', 'FBTO');
 
-    INSERT INTO organization(orgCode, title) VALUES('YES", 'Youth Entrepreneurial Society');
-    INSERT INTO course(courseCode, title) VALUES ('BSENT','Bachelor of Science in Entrepreneurial Management', 'YES');
-
-
+    INSERT INTO organization(orgCode, title) VALUES('YES', 'YOUTH ENTREPRENEURIAL SOCIETY');
+    INSERT INTO course(courseCode, title, orgCode) VALUES ('BSENT','Bachelor of Science in Entrepreneurial Management', 'YES');
 
 
 
 ### API [ /api ]
 
-#### User [ /api/user ] 
-- / 
+#### User [ /api/user ]
+- /
    - GET  -> Get all user
    - POST -> Create new user
 - /:id
@@ -160,7 +159,7 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 - /:StudentNo
    - GET -> Get student by Student No
    - PATCH -> Update student
-- /course/:CourseCode   
+- /course/:CourseCode
    - GET -> Get all students by Course
 
 #### EVENT [ /api/event ]
@@ -178,7 +177,7 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 - /:id
    - PATCH - Update attendance
    - DELETE - Delete attendance
-  
+
 ### FLOW
 
 #### Login
@@ -193,9 +192,9 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
 
 #### Student
 - Add student -> Generate QR & ID
- 
+
 #### Sorting
-- Students 
+- Students
    - by course & section
    - by course
    - by last name
@@ -204,7 +203,7 @@ P.S: varchar id is auto generated string instead of auto increment to avoid over
    - all event by month
    - event by id
 
-#### Attendance 
+#### Attendance
 - (Time in)
 - (Time out)
 

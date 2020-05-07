@@ -1,0 +1,24 @@
+{
+  "name": "commits-ams",
+  "version": "1.0.0",
+  "description": "Attendance Monitoring System using Express + MySQL",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon server/server.js -w server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dzhonpetrus/commits-ams.git"
+  },
+  "author": "DzhonPetrus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dzhonpetrus/commits-ams/issues"
+  },
+  "homepage": "https://github.com/dzhonpetrus/commits-ams#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
